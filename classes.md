@@ -17,9 +17,9 @@
 ✅ <button className="text-stone-800 hover:text-stone-950">...</button>
 ✅ <button className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">...</button>
 
-<div className="flex items-center gap-4">
-<input className="w-64 px-2 py-1 rounded-sm bg-stone-200" />
-<button className="text-stone-700 hover:text-stone-950">...</button>
+✅ <div className="flex items-center gap-4">
+✅ <input className="w-64 px-2 py-1 rounded-sm bg-stone-200" />
+✅ <button className="text-stone-700 hover:text-stone-950">...</button>
 ✅ <div className="mt-24 text-center w-2/3">
 ✅ <img className="w-16 h-16 object-contain mx-auto" />
 ✅ <h2 className="text-xl font-bold text-stone-500 my-4">...</h2>
@@ -36,8 +36,9 @@
 ✅ <button className="text-stone-600 hover:text-stone-950">...</button>
 ✅ <p className="mb-4 text-stone-400">...</p>
 ✅ <p className="text-stone-600 whitespace-pre-wrap">...</p>
-<h2 className="text-2xl font-bold text-stone-700 mb-4">Tasks</h2>
-<p className="text-stone-800 my-4">...</p>
-<ul className="p-4 mt-8 rounded-md bg-stone-100">...</ul>
+✅<h2 className="text-2xl font-bold text-stone-700 mb-4">Tasks</h2>
+✅ <p className="text-stone-800 my-4">...</p>
+✅ <ul className="p-4 mt-8 rounded-md bg-stone-100">...</ul>
+
 <li className="flex justify-between my-4">...</li>
 <button className="text-stone-700 hover:text-red-500">...</button>
