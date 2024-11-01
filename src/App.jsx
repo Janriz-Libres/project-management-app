@@ -4,29 +4,31 @@ import Sidebar from "./components/Sidebar";
 import HomeScreen from "./components/HomeScreen";
 
 function App() {
-  const [projectState, setProjectState] = useState({
+  const [projectsState, setProjectsState] = useState({
     selectedProject: undefined,
     projects: [],
   });
 
   function handleAddProject() {
-    setProjectState((prevState) => ({
+    setProjectsState((prevState) => ({
       selectedProject: null,
       projects: [...prevState.projects],
     }));
   }
 
   function handleCancel() {
-    setProjectState((prevState) => ({
+    setProjectsState((prevState) => ({
       selectedProject: undefined,
       projects: [...prevState.projects],
     }));
   }
 
-  function handleSaveProject(project) {
-    setProjectState((prevState) => ({
-      ...prevState,
-      projects: [...prevState.projects, project],
+  function handleSaveProject(projectData) {
+    projectData.id = Math.random();
+
+    setProjectsState((prevState) => ({
+      selectedProject: undefined,
+      projects: [...prevState.projects, projectData],
     }));
   }
 
@@ -34,13 +36,13 @@ function App() {
     <>
       <main className="h-screen my-8 flex gap-8">
         <Sidebar
-          projects={projectState.projects}
+          projects={projectsState.projects}
           onAddProject={handleAddProject}
         />
-        {projectState.selectedProject === undefined && (
+        {projectsState.selectedProject === undefined && (
           <HomeScreen onAddProject={handleAddProject} />
         )}
-        {projectState.selectedProject === null && (
+        {projectsState.selectedProject === null && (
           <NewProject
             onSaveProject={handleSaveProject}
             onCancel={handleCancel}

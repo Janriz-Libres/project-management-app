@@ -5,14 +5,18 @@
 ✅ <p className="flex flex-col gap-1 my-4">...</p>
 ✅ <label className="text-sm font-bold uppercase text-stone-500">...</label>
 
-<dialog className="backdrop:bg-stone-900/90 p-4 rounded-md shadow-md">...</dialog>
-<form className="mt-4 text-right">...</form>
-<h2 className="text-xl font-bold text-stone-700 my-4">...</h2>
-<p className="text-stone-600 mb-4">...</p>
-<div className="w-[35rem] mt-16">...</div>
+✅<dialog className="backdrop:bg-stone-900/90 p-4 rounded-md shadow-md">...</dialog>
+
+✅ <form className="mt-4 text-right">...</form>
+
+✅<h2 className="text-xl font-bold text-stone-700 my-4">...</h2>
+✅<p className="text-stone-600 mb-4">...</p>
+
+✅ <div className="w-[35rem] mt-16">...</div>
 ✅ <menu className="flex items-center justify-end gap-4 my-4">...</menu>
 ✅ <button className="text-stone-800 hover:text-stone-950">...</button>
 ✅ <button className="px-6 py-2 rounded-md bg-stone-800 text-stone-50 hover:bg-stone-950">...</button>
+
 <div className="flex items-center gap-4">
 <input className="w-64 px-2 py-1 rounded-sm bg-stone-200" />
 <button className="text-stone-700 hover:text-stone-950">...</button>
@@ -23,8 +27,8 @@
 ✅ <p className="mt-8">...</p>
 ✅ <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
 ✅ <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">...</h2>
-<ul className="mt-8">...</ul>
-<button className="w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800">...</button>
+✅<ul className="mt-8">...</ul>
+✅ <button className="w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800">...</button>
 ✅ <div className="w-[35rem] mt-16">...</div>
 <header className="pb-4 mb-4 border-b-2 border-stone-300">...</header>
 <div className="flex items-center justify-between">...</div>

@@ -9,10 +9,12 @@ export default function Sidebar({ projects, onAddProject }) {
       <div>
         <Button onClick={onAddProject}>+ Add Project</Button>
       </div>
-      <ul>
-        {projects.map((project, index) => (
-          <li key={index} className="mt-4">
-            <h3 className="font-bold">{project.title}</h3>
+      <ul className="mt-8">
+        {projects.map((project) => (
+          <li key={project.id}>
+            <button className="w-full text-left px-2 py-1 rounded-sm my-1 hover:text-stone-200 hover:bg-stone-800">
+              {project.title}
+            </button>
           </li>
         ))}
       </ul>
