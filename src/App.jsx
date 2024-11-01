@@ -40,10 +40,12 @@ function App() {
     }));
   }
 
-  function handleDeleteProject(id) {
+  function handleDeleteProject() {
     setProjectsState((prevState) => ({
       selectedProjectId: undefined,
-      projects: prevState.projects.filter((project) => project.id !== id),
+      projects: prevState.projects.filter(
+        (project) => project.id !== prevState.selectedProjectId
+      ),
     }));
   }
 
@@ -70,10 +72,7 @@ function App() {
           />
         )}
         {selectedProject && (
-          <Project
-            project={selectedProject}
-            onDeleteProject={handleDeleteProject}
-          />
+          <Project project={selectedProject} onDelete={handleDeleteProject} />
         )}
       </main>
     </>
