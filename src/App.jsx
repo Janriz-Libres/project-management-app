@@ -2,23 +2,24 @@ import { useState } from "react";
 import NewProject from "./components/NewProject";
 import Sidebar from "./components/Sidebar";
 import HomeScreen from "./components/HomeScreen";
+import Project from "./components/Project";
 
 function App() {
   const [projectsState, setProjectsState] = useState({
-    selectedProject: undefined,
+    selectedProjectId: undefined,
     projects: [],
   });
 
   function handleAddProject() {
     setProjectsState((prevState) => ({
-      selectedProject: null,
+      selectedProjectId: null,
       projects: [...prevState.projects],
     }));
   }
 
   function handleCancel() {
     setProjectsState((prevState) => ({
-      selectedProject: undefined,
+      selectedProjectId: undefined,
       projects: [...prevState.projects],
     }));
   }
@@ -27,27 +28,41 @@ function App() {
     projectData.id = Math.random();
 
     setProjectsState((prevState) => ({
-      selectedProject: undefined,
+      selectedProjectId: undefined,
       projects: [...prevState.projects, projectData],
     }));
   }
+
+  function handleSelectProject(id) {
+    setProjectsState((prevState) => ({
+      selectedProjectId: id,
+      projects: [...prevState.projects],
+    }));
+  }
+
+  const selectedProject = projectsState.projects.find(
+    (project) => project.id === projectsState.selectedProjectId
+  );
 
   return (
     <>
       <main className="h-screen my-8 flex gap-8">
         <Sidebar
           projects={projectsState.projects}
+          selectedProjectId={projectsState.selectedProjectId}
           onAddProject={handleAddProject}
+          onSelectProject={handleSelectProject}
         />
-        {projectsState.selectedProject === undefined && (
+        {projectsState.selectedProjectId === undefined && (
           <HomeScreen onAddProject={handleAddProject} />
         )}
-        {projectsState.selectedProject === null && (
+        {projectsState.selectedProjectId === null && (
           <NewProject
             onSaveProject={handleSaveProject}
             onCancel={handleCancel}
           />
         )}
+        {selectedProject && <Project project={selectedProject} />}
       </main>
     </>
   );
