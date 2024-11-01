@@ -22,7 +22,6 @@ export default function NewProject({ onSaveProject, onCancel }) {
       userInput[key] = value;
     }
 
-    userInput["tasks"] = [];
     onSaveProject(userInput);
   }
 

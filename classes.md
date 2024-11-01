@@ -40,5 +40,5 @@
 ✅ <p className="text-stone-800 my-4">...</p>
 ✅ <ul className="p-4 mt-8 rounded-md bg-stone-100">...</ul>
 
-<li className="flex justify-between my-4">...</li>
-<button className="text-stone-700 hover:text-red-500">...</button>
+✅ <li className="flex justify-between my-4">...</li>
+✅ <button className="text-stone-700 hover:text-red-500">...</button>
