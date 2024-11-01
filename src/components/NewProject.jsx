@@ -1,22 +1,27 @@
-import { useState } from "react";
+import { useRef } from "react";
 import Input from "./Input";
 
 export default function NewProject({ onSaveProject, onCancel }) {
-  const [userInput, setUserInput] = useState({
-    title: "",
-    description: "",
-    dueDate: "",
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setUserInput((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  }
+  const inputRefs = {
+    title: useRef(),
+    description: useRef(),
+    dueDate: useRef(),
+  };
 
   function handleSave() {
+    const userInput = {};
+
+    for (const key in inputRefs) {
+      if (inputRefs[key].current.value === "") {
+        return;
+      }
+      userInput[key] = inputRefs[key].current.value;
+    }
+
+    for (const key in inputRefs) {
+      inputRefs[key].current.value = "";
+    }
+
     onSaveProject(userInput);
   }
 
@@ -41,25 +46,9 @@ export default function NewProject({ onSaveProject, onCancel }) {
         </li>
       </menu>
       <div>
-        <Input
-          label="Title"
-          name="title"
-          value={userInput.title}
-          onChange={handleChange}
-        />
-        <Input
-          label="Description"
-          name="description"
-          value={userInput.description}
-          onChange={handleChange}
-          textarea
-        />
-        <Input
-          label="Due Date"
-          name="dueDate"
-          value={userInput.dueDate}
-          onChange={handleChange}
-        />
+        <Input ref={inputRefs.title} label="Title" />
+        <Input ref={inputRefs.description} label="Description" textarea />
+        <Input ref={inputRefs.dueDate} label="Due Date" />
       </div>
     </div>
   );
