@@ -40,6 +40,13 @@ function App() {
     }));
   }
 
+  function handleDeleteProject(id) {
+    setProjectsState((prevState) => ({
+      selectedProjectId: undefined,
+      projects: prevState.projects.filter((project) => project.id !== id),
+    }));
+  }
+
   const selectedProject = projectsState.projects.find(
     (project) => project.id === projectsState.selectedProjectId
   );
@@ -62,7 +69,12 @@ function App() {
             onCancel={handleCancel}
           />
         )}
-        {selectedProject && <Project project={selectedProject} />}
+        {selectedProject && (
+          <Project
+            project={selectedProject}
+            onDeleteProject={handleDeleteProject}
+          />
+        )}
       </main>
     </>
   );
