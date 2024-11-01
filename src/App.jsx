@@ -4,34 +4,47 @@ import Sidebar from "./components/Sidebar";
 import HomeScreen from "./components/HomeScreen";
 
 function App() {
-  const [projects, setProjects] = useState({
+  const [projectState, setProjectState] = useState({
     selectedProject: undefined,
     projects: [],
   });
 
   function handleAddProject() {
-    setProjects((prevState) => ({
+    setProjectState((prevState) => ({
       selectedProject: null,
       projects: [...prevState.projects],
     }));
   }
 
   function handleCancel() {
-    setProjects((prevState) => ({
+    setProjectState((prevState) => ({
       selectedProject: undefined,
       projects: [...prevState.projects],
+    }));
+  }
+
+  function handleSaveProject(project) {
+    setProjectState((prevState) => ({
+      ...prevState,
+      projects: [...prevState.projects, project],
     }));
   }
 
   return (
     <>
       <main className="h-screen my-8 flex gap-8">
-        <Sidebar onAddProject={handleAddProject} />
-        {projects.selectedProject === undefined && (
+        <Sidebar
+          projects={projectState.projects}
+          onAddProject={handleAddProject}
+        />
+        {projectState.selectedProject === undefined && (
           <HomeScreen onAddProject={handleAddProject} />
         )}
-        {projects.selectedProject === null && (
-          <NewProject onCancel={handleCancel} />
+        {projectState.selectedProject === null && (
+          <NewProject
+            onSaveProject={handleSaveProject}
+            onCancel={handleCancel}
+          />
         )}
       </main>
     </>
